@@ -30,6 +30,13 @@ key file where `--out` says and appends to the master key (`$FH_MEMO_KEYS`, defa
 ## Reading the counts
 
 Visits are counted by GoatCounter (account `futureheist`, https://futureheist.goatcounter.com). Each visit is
-recorded with its full path, `/fh-memo/<doc-slug>/?r=<code>`; look the code up in the master key. A visit means
+recorded with its full path, `/fh-memo/<doc-slug>/?r=<code>`; look the code up in the master key, or run
+
+```
+python3 -I tools/visits.py [--send <send-name>]
+```
+
+which pulls the counts from GoatCounter's API (key in `GOATCOUNTER_TOKEN`; setup note at the top of the script) and
+prints one row per recipient. A visit means
 someone opened that link, not that the named person read it: forwards count under the original code, and some
 mail systems' link scanners open links before a person does.
